@@ -4,12 +4,20 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle, Shield, Users, Award, ArrowRight } from 'lucide-react';
 import WhatsAppPopup from '@/components/WhatsAppPopup';
+import WhatsAppWave from '@/components/WhatsAppWave';
+import ScrollAnimations from '@/components/ScrollAnimations';
 
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary/5 to-white">
+      {/* WhatsApp Wave Animation */}
+      <WhatsAppWave />
+      
+      {/* Scroll Animation Handler */}
+      <ScrollAnimations />
+
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary to-secondary text-white py-20">
+      <section className="relative bg-gradient-to-r from-primary to-secondary text-white py-20 scroll-fade-in">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6 animate-fade-in">
@@ -31,8 +39,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Trust Indicators */}
-      <section className="py-16 bg-white">
+      {/* Trust Indicators Section */}
+      <section className="py-16 bg-white scroll-slide-left">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div className="animate-fade-in">
@@ -56,7 +64,7 @@ const HomePage = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-primary/5">
+      <section className="py-20 bg-primary/5 scroll-fade-in">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
@@ -117,8 +125,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 bg-white">
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-white scroll-slide-right">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -166,7 +174,7 @@ const HomePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+      <section className="py-20 bg-gradient-to-r from-primary to-secondary text-white scroll-fade-in">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Recover Your Money?</h2>
           <p className="text-xl mb-8 text-primary-foreground/80 max-w-2xl mx-auto">

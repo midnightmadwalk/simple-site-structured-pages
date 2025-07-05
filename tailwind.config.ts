@@ -103,6 +103,24 @@ export default {
 				'float': {
 					'0%, 100%': { transform: 'translateY(0px)' },
 					'50%': { transform: 'translateY(-10px)' }
+				},
+				'whatsapp-wave': {
+					'0%': {
+						top: '0',
+						left: '0',
+						opacity: '1',
+						transform: 'scale(0.5)'
+					},
+					'50%': {
+						opacity: '0.8',
+						transform: 'scale(1.2)'
+					},
+					'100%': {
+						top: 'calc(100vh - 80px)',
+						left: 'calc(100vw - 80px)',
+						opacity: '0',
+						transform: 'scale(0.8)'
+					}
 				}
 			},
 			animation: {
@@ -110,7 +128,8 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.6s ease-out',
 				'wiggle': 'wiggle 1s ease-in-out infinite',
-				'float': 'float 3s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'whatsapp-wave': 'whatsapp-wave 2s ease-out forwards'
 			}
 		}
 	},
