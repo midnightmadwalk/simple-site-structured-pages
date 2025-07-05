@@ -2,290 +2,250 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { CheckCircle, FileText, Users, Shield, Clock, ArrowRight, Download } from 'lucide-react';
+import { CheckCircle, Shield, Clock, FileText, Users, ArrowRight, MessageCircle, Phone, Mail } from 'lucide-react';
 
 const IEPFClaimPage = () => {
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '+919876543210';
+    const message = 'Hello! I would like to know more about IEPF claim recovery services.';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const steps = [
+    {
+      step: 1,
+      title: 'Document Collection',
+      description: 'Gather all necessary documents including PAN card, bank statements, and share certificates'
+    },
+    {
+      step: 2,
+      title: 'Verification Process',
+      description: 'Our experts verify your documents and check eligibility for IEPF claims'
+    },
+    {
+      step: 3,
+      title: 'Application Filing',
+      description: 'We file your application with proper documentation to the IEPF authority'
+    },
+    {
+      step: 4,
+      title: 'Follow-up & Recovery',
+      description: 'Regular follow-up with authorities until your funds are successfully recovered'
+    }
+  ];
+
+  const documents = [
+    'PAN Card',
+    'Bank Account Statements',
+    'Share Certificates',
+    'Identity Proof (Aadhaar/Passport)',
+    'Address Proof',
+    'Death Certificate (if applicable)',
+    'Legal Heir Certificate (if applicable)',
+    'Nomination Details'
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Header Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+    <div className="min-h-screen bg-gradient-to-b from-primary/5 to-white">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-primary to-secondary text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl font-bold mb-4 animate-fade-in">IEPF Claim & Recovery</h1>
-            <p className="text-xl text-blue-100 mb-8">
-              Expert assistance in recovering your unclaimed dividends, deposits, and shares from IEPF
+            <h1 className="text-5xl font-bold mb-6">IEPF Claim & Recovery</h1>
+            <p className="text-xl mb-8 text-primary-foreground/80">
+              Professional assistance for recovering your unclaimed dividends, deposits, and shares from IEPF
             </p>
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
-              Start Your Claim Process
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-white text-primary hover:bg-primary-foreground/90">
+                Start Your Claim
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button 
+                size="lg" 
+                onClick={handleWhatsAppClick}
+                className="bg-green-500 hover:bg-green-600 text-white"
+              >
+                <MessageCircle className="mr-2 h-5 w-5" />
+                WhatsApp Us
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* What is IEPF Section */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">What is IEPF?</h2>
-            <div className="bg-blue-50 p-8 rounded-lg mb-8">
-              <p className="text-lg text-gray-700 leading-relaxed">
-                The <strong>Investor Education and Protection Fund (IEPF)</strong> is a statutory fund established under the Companies Act, 2013. 
-                All unclaimed dividends, matured deposits, debentures, and shares that remain unclaimed for seven consecutive years 
-                are transferred to this fund by companies.
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-800 mb-6">What is IEPF?</h2>
+              <p className="text-xl text-gray-600">
+                The Investor Education and Protection Fund (IEPF) is a fund established by the Government of India 
+                to promote investor awareness and protect the interests of investors.
               </p>
             </div>
             
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <Card className="text-center hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold mb-3">Investor Protection</h3>
+                  <p className="text-gray-600">Safeguards investor interests and unclaimed investments</p>
+                  <Button 
+                    size="sm" 
+                    onClick={handleWhatsAppClick}
+                    className="bg-green-500 hover:bg-green-600 text-white mt-4"
+                  >
+                    <MessageCircle className="h-4 w-4 mr-1" />
+                    Ask
+                  </Button>
+                </CardContent>
+              </Card>
+              
+              <Card className="text-center hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <Clock className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold mb-3">7-Year Rule</h3>
+                  <p className="text-gray-600">Unclaimed amounts are transferred to IEPF after 7 years</p>
+                  <Button 
+                    size="sm" 
+                    onClick={handleWhatsAppClick}
+                    className="bg-green-500 hover:bg-green-600 text-white mt-4"
+                  >
+                    <MessageCircle className="h-4 w-4 mr-1" />
+                    Ask
+                  </Button>
+                </CardContent>
+              </Card>
+              
+              <Card className="text-center hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <Users className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold mb-3">Recovery Process</h3>
+                  <p className="text-gray-600">Rightful owners can claim back their funds through proper procedure</p>
+                  <Button 
+                    size="sm" 
+                    onClick={handleWhatsAppClick}
+                    className="bg-green-500 hover:bg-green-600 text-white mt-4"
+                  >
+                    <MessageCircle className="h-4 w-4 mr-1" />
+                    Ask
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-20 bg-primary/5">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Recovery Process</h2>
+            <p className="text-xl text-gray-600">Simple 4-step process to recover your funds</p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <Card className="hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4 text-blue-600">What Gets Transferred?</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                      <span>Unclaimed dividends</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                      <span>Matured deposits and debentures</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                      <span>Share certificates</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                      <span>Interest on deposits</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4 text-blue-600">Recovery Process</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                      <span>Search IEPF database</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                      <span>Prepare necessary documents</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                      <span>File claim application</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                      <span>Follow up and receive refund</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
+              {steps.map((step, index) => (
+                <Card key={index} className="hover:shadow-lg transition-shadow">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
+                        {step.step}
+                      </div>
+                      <div className="flex-grow">
+                        <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                        <p className="text-gray-600 mb-3">{step.description}</p>
+                        <Button 
+                          size="sm" 
+                          onClick={handleWhatsAppClick}
+                          className="bg-green-500 hover:bg-green-600 text-white"
+                        >
+                          <MessageCircle className="h-4 w-4 mr-1" />
+                          Get Help
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Services */}
-      <section className="py-16 bg-gray-50">
+      {/* Required Documents Section */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">Our IEPF Recovery Services</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in">
-              <CardContent className="p-8 text-center">
-                <FileText className="h-16 w-16 text-blue-600 mx-auto mb-6" />
-                <h3 className="text-xl font-semibold mb-4">Documentation Support</h3>
-                <p className="text-gray-600 mb-6">
-                  Complete assistance in preparing and organizing all required documents for IEPF claims
-                </p>
-                <ul className="text-left space-y-2 text-sm text-gray-600">
-                  <li>• KYC documents preparation</li>
-                  <li>• Notarization assistance</li>
-                  <li>• Form filling support</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in">
-              <CardContent className="p-8 text-center">
-                <Users className="h-16 w-16 text-blue-600 mx-auto mb-6" />
-                <h3 className="text-xl font-semibold mb-4">Legal Representation</h3>
-                <p className="text-gray-600 mb-6">
-                  Professional legal support for complex IEPF recovery cases and disputes
-                </p>
-                <ul className="text-left space-y-2 text-sm text-gray-600">
-                  <li>• Legal consultation</li>
-                  <li>• Dispute resolution</li>
-                  <li>• Court representation</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in">
-              <CardContent className="p-8 text-center">
-                <Shield className="h-16 w-16 text-blue-600 mx-auto mb-6" />
-                <h3 className="text-xl font-semibold mb-4">End-to-End Process</h3>
-                <p className="text-gray-600 mb-6">
-                  Complete handling of your IEPF claim from search to successful recovery
-                </p>
-                <ul className="text-left space-y-2 text-sm text-gray-600">
-                  <li>• Database search</li>
-                  <li>• Application submission</li>
-                  <li>• Regular follow-ups</li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Steps */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">Our Recovery Process</h2>
-          
           <div className="max-w-4xl mx-auto">
-            <div className="space-y-8">
-              <div className="flex items-start gap-6">
-                <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg flex-shrink-0">
-                  1
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Initial Consultation</h3>
-                  <p className="text-gray-600">Free consultation to understand your case and assess recovery potential</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-6">
-                <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg flex-shrink-0">
-                  2
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Database Search</h3>
-                  <p className="text-gray-600">Comprehensive search in IEPF database to identify your unclaimed funds</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-6">
-                <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg flex-shrink-0">
-                  3
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Document Preparation</h3>
-                  <p className="text-gray-600">Assistance in gathering and preparing all necessary documents</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-6">
-                <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg flex-shrink-0">
-                  4
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Application Submission</h3>
-                  <p className="text-gray-600">Professional submission of your claim application to IEPF authorities</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-6">
-                <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg flex-shrink-0">
-                  5
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Follow-up & Recovery</h3>
-                  <p className="text-gray-600">Regular follow-ups with authorities until successful fund recovery</p>
-                </div>
-              </div>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">Required Documents</h2>
+              <p className="text-xl text-gray-600">Documents you'll need for IEPF claim recovery</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Required Documents */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">Required Documents</h2>
-          
-          <div className="max-w-4xl mx-auto">
-            <Card>
-              <CardContent className="p-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-xl font-semibold mb-4 text-blue-600">Individual Claimants</h3>
-                    <ul className="space-y-3">
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                        <span>PAN Card copy</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                        <span>Aadhaar Card copy</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                        <span>Bank account details</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                        <span>Address proof</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                        <span>Share certificates (if available)</span>
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-semibold mb-4 text-blue-600">Legal Heirs</h3>
-                    <ul className="space-y-3">
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                        <span>Death certificate</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                        <span>Legal heir certificate</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                        <span>Succession certificate</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                        <span>Indemnity bond</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                        <span>Notarized affidavit</span>
-                      </li>
-                    </ul>
-                  </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-2xl font-semibold mb-6 text-gray-800">Document Checklist</h3>
+                <div className="space-y-3">
+                  {documents.map((doc, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
+                      <span className="text-gray-700">{doc}</span>
+                    </div>
+                  ))}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+              
+              <Card className="bg-gradient-to-br from-primary/10 to-secondary/10">
+                <CardContent className="p-8">
+                  <FileText className="h-12 w-12 text-primary mb-4" />
+                  <h3 className="text-2xl font-semibold mb-4">Need Document Help?</h3>
+                  <p className="text-gray-600 mb-6">
+                    Our experts can guide you through the document preparation process and 
+                    ensure you have everything needed for a successful claim.
+                  </p>
+                  <div className="space-y-3">
+                    <Button 
+                      onClick={handleWhatsAppClick}
+                      className="w-full bg-green-500 hover:bg-green-600 text-white"
+                    >
+                      <MessageCircle className="mr-2 h-5 w-5" />
+                      WhatsApp for Document Help
+                    </Button>
+                    <Button variant="outline" className="w-full">
+                      <Phone className="mr-2 h-5 w-5" />
+                      Call for Assistance
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <section className="py-20 bg-gradient-to-r from-primary to-secondary text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Recover Your IEPF Funds?</h2>
-          <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-            Don't let your money remain unclaimed. Start your IEPF recovery process today with our expert team.
+          <h2 className="text-4xl font-bold mb-6">Ready to Recover Your IEPF Funds?</h2>
+          <p className="text-xl mb-8 text-primary-foreground/80 max-w-2xl mx-auto">
+            Don't let your money stay unclaimed. Our expert team is here to help you recover every penny.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
-              Start Free Consultation
+            <Button size="lg" className="bg-white text-primary hover:bg-primary-foreground/90">
+              Start Your IEPF Claim
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
-              <Download className="mr-2 h-5 w-5" />
-              Download Checklist
+            <Button 
+              size="lg" 
+              onClick={handleWhatsAppClick}
+              className="bg-green-500 hover:bg-green-600 text-white"
+            >
+              <MessageCircle className="mr-2 h-5 w-5" />
+              WhatsApp Now
             </Button>
           </div>
         </div>

@@ -2,12 +2,62 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { CheckCircle, Shield, Users, Award, ArrowRight } from 'lucide-react';
+import { CheckCircle, ArrowRight, MessageCircle, FileText, Share2, Shield, Users, Award, Building, Search, FileCheck, Banknote, Briefcase } from 'lucide-react';
 import WhatsAppPopup from '@/components/WhatsAppPopup';
 import WhatsAppWave from '@/components/WhatsAppWave';
 import ScrollAnimations from '@/components/ScrollAnimations';
 
 const HomePage = () => {
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '+919876543210';
+    const message = 'Hello! I would like to know more about your financial recovery services.';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const services = [
+    {
+      icon: Shield,
+      title: 'IEPF Claim',
+      description: 'Expert assistance in recovering unclaimed dividends, deposits, and shares from IEPF',
+    },
+    {
+      icon: FileCheck,
+      title: 'Duplicate Issue of Shares',
+      description: 'Professional help for recovering lost, stolen, or damaged share certificates',
+    },
+    {
+      icon: Share2,
+      title: 'Transmission of Shares',
+      description: 'Legal assistance for transferring shares from deceased shareholders to legal heirs',
+    },
+    {
+      icon: Users,
+      title: 'Unclaimed Insurance',
+      description: 'Recover unclaimed insurance amounts due to various policy-related issues',
+    },
+    {
+      icon: Award,
+      title: 'Unclaimed Mutual Funds',
+      description: 'Professional assistance for recovering dormant mutual fund investments',
+    },
+    {
+      icon: Building,
+      title: 'In-Operative Bank Deposits',
+      description: 'Reactivate dormant bank accounts and recover unclaimed deposits',
+    },
+    {
+      icon: Search,
+      title: 'Unclaimed Debtors',
+      description: 'Trace and recover unclaimed debts and outstanding amounts',
+    },
+    {
+      icon: Briefcase,
+      title: 'Litigation Funding Consulting',
+      description: 'Expert consultation for complex financial recovery litigation cases',
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary/5 to-white">
       {/* WhatsApp Wave Animation */}
@@ -24,7 +74,7 @@ const HomePage = () => {
               Professional Financial Recovery Services
             </h1>
             <p className="text-xl mb-8 text-primary-foreground/80">
-              Expert assistance for IEPF claims, unclaimed deposits, and financial recovery solutions
+              Expert assistance for IEPF claims, unclaimed deposits, and comprehensive financial recovery solutions
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-primary hover:bg-primary-foreground/90 transition-colors">
@@ -33,6 +83,14 @@ const HomePage = () => {
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
                 View Services
+              </Button>
+              <Button 
+                size="lg" 
+                onClick={handleWhatsAppClick}
+                className="bg-green-500 hover:bg-green-600 text-white"
+              >
+                <MessageCircle className="mr-2 h-5 w-5" />
+                WhatsApp Us
               </Button>
             </div>
           </div>
@@ -73,54 +131,31 @@ const HomePage = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="hover:shadow-xl transition-all duration-300 animate-fade-in group">
-              <CardContent className="p-8 text-center">
-                <div className="mb-6 relative">
-                  <Shield className="h-16 w-16 text-primary mx-auto gen-z-icon group-hover:animate-wiggle" />
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary/20 rounded-full animate-pulse"></div>
-                </div>
-                <h3 className="text-2xl font-semibold mb-4">IEPF Claim Recovery</h3>
-                <p className="text-gray-600 mb-6">
-                  Expert assistance in recovering unclaimed dividends, deposits, and shares from IEPF
-                </p>
-                <Button variant="outline" className="hover-scale border-primary text-primary hover:bg-primary hover:text-white">
-                  Learn More
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-xl transition-all duration-300 animate-fade-in group">
-              <CardContent className="p-8 text-center">
-                <div className="mb-6 relative">
-                  <Users className="h-16 w-16 text-primary mx-auto gen-z-icon group-hover:animate-float" />
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-secondary/20 rounded-full animate-bounce"></div>
-                </div>
-                <h3 className="text-2xl font-semibold mb-4">Unclaimed Deposits</h3>
-                <p className="text-gray-600 mb-6">
-                  Recover dormant bank accounts, fixed deposits, and other unclaimed financial assets
-                </p>
-                <Button variant="outline" className="hover-scale border-primary text-primary hover:bg-primary hover:text-white">
-                  Learn More
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-xl transition-all duration-300 animate-fade-in group">
-              <CardContent className="p-8 text-center">
-                <div className="mb-6 relative">
-                  <Award className="h-16 w-16 text-primary mx-auto gen-z-icon group-hover:icon-spin-slow" />
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary/20 rounded-full icon-pulse"></div>
-                </div>
-                <h3 className="text-2xl font-semibold mb-4">Legal Consultation</h3>
-                <p className="text-gray-600 mb-6">
-                  Professional legal guidance for complex financial recovery cases
-                </p>
-                <Button variant="outline" className="hover-scale border-primary text-primary hover:bg-primary hover:text-white">
-                  Learn More
-                </Button>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service, index) => (
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 animate-fade-in group h-full">
+                <CardContent className="p-6 text-center h-full flex flex-col">
+                  <div className="mb-4 relative">
+                    <service.icon className="h-12 w-12 text-primary mx-auto gen-z-icon group-hover:animate-wiggle" />
+                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-primary/20 rounded-full animate-pulse"></div>
+                  </div>
+                  <h3 className="text-lg font-semibold mb-3 flex-grow">{service.title}</h3>
+                  <p className="text-gray-600 text-sm mb-4">{service.description}</p>
+                  <div className="flex gap-2 justify-center mt-auto">
+                    <Button variant="outline" size="sm" className="hover-scale border-primary text-primary hover:bg-primary hover:text-white">
+                      Learn More
+                    </Button>
+                    <Button 
+                      size="sm" 
+                      onClick={handleWhatsAppClick}
+                      className="bg-green-500 hover:bg-green-600 text-white"
+                    >
+                      <MessageCircle className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -138,6 +173,13 @@ const HomePage = () => {
                     <h3 className="text-xl font-semibold mb-2">Expert Team</h3>
                     <p className="text-gray-600">Experienced professionals with deep knowledge of IEPF processes</p>
                   </div>
+                  <Button 
+                    size="sm" 
+                    onClick={handleWhatsAppClick}
+                    className="bg-green-500 hover:bg-green-600 text-white ml-auto"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                  </Button>
                 </div>
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
@@ -145,6 +187,13 @@ const HomePage = () => {
                     <h3 className="text-xl font-semibold mb-2">100% Success Rate</h3>
                     <p className="text-gray-600">Proven track record of successful claim recoveries</p>
                   </div>
+                  <Button 
+                    size="sm" 
+                    onClick={handleWhatsAppClick}
+                    className="bg-green-500 hover:bg-green-600 text-white ml-auto"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                  </Button>
                 </div>
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
@@ -152,6 +201,13 @@ const HomePage = () => {
                     <h3 className="text-xl font-semibold mb-2">No Hidden Charges</h3>
                     <p className="text-gray-600">Transparent pricing with no surprise fees</p>
                   </div>
+                  <Button 
+                    size="sm" 
+                    onClick={handleWhatsAppClick}
+                    className="bg-green-500 hover:bg-green-600 text-white ml-auto"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                  </Button>
                 </div>
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
@@ -159,6 +215,13 @@ const HomePage = () => {
                     <h3 className="text-xl font-semibold mb-2">Quick Processing</h3>
                     <p className="text-gray-600">Fast turnaround time for all claim processes</p>
                   </div>
+                  <Button 
+                    size="sm" 
+                    onClick={handleWhatsAppClick}
+                    className="bg-green-500 hover:bg-green-600 text-white ml-auto"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                  </Button>
                 </div>
               </div>
             </div>
@@ -180,10 +243,20 @@ const HomePage = () => {
           <p className="text-xl mb-8 text-primary-foreground/80 max-w-2xl mx-auto">
             Don't let your hard-earned money remain unclaimed. Contact us today for a free consultation.
           </p>
-          <Button size="lg" className="bg-white text-primary hover:bg-primary-foreground/90 transition-colors">
-            Start Your Claim Today
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-white text-primary hover:bg-primary-foreground/90 transition-colors">
+              Start Your Claim Today
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button 
+              size="lg" 
+              onClick={handleWhatsAppClick}
+              className="bg-green-500 hover:bg-green-600 text-white"
+            >
+              <MessageCircle className="mr-2 h-5 w-5" />
+              WhatsApp Now
+            </Button>
+          </div>
         </div>
       </section>
 
