@@ -1,40 +1,25 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
+import WhatsAppPopup from '@/components/WhatsAppPopup';
 
 const ContactUsPage = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission here
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '+919876543210';
+    const message = 'Hello! I would like to get in touch regarding your services.';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-primary/5 to-white">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+      <section className="bg-gradient-to-r from-primary to-secondary text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-4 animate-fade-in">Contact Us</h1>
-          <p className="text-xl text-blue-100">
+          <p className="text-xl text-primary-foreground/80">
             Get in touch with our expert team for personalized assistance
           </p>
         </div>
@@ -42,89 +27,25 @@ const ContactUsPage = () => {
 
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
+          {/* WhatsApp Contact Card */}
           <div>
-            <Card className="shadow-lg">
-              <CardContent className="p-8">
-                <h2 className="text-3xl font-bold text-gray-800 mb-6">Send us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Full Name
-                      </label>
-                      <Input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Enter your full name"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Email Address
-                      </label>
-                      <Input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Enter your email"
-                        required
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Phone Number
-                      </label>
-                      <Input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="Enter your phone number"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Subject
-                      </label>
-                      <Input
-                        type="text"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        placeholder="Enter subject"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Message
-                    </label>
-                    <Textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell us about your requirements or questions"
-                      className="min-h-32"
-                      required
-                    />
-                  </div>
-
-                  <Button type="submit" size="lg" className="w-full bg-blue-600 hover:bg-blue-700">
-                    Send Message
-                    <Send className="ml-2 h-5 w-5" />
-                  </Button>
-                </form>
+            <Card className="shadow-lg mb-8">
+              <CardContent className="p-8 text-center">
+                <div className="mb-6">
+                  <MessageCircle className="h-16 w-16 text-green-500 mx-auto animate-bounce" />
+                </div>
+                <h2 className="text-3xl font-bold text-gray-800 mb-4">Send us a Message</h2>
+                <p className="text-lg text-gray-600 mb-6">
+                  Get instant support and quick responses through WhatsApp
+                </p>
+                <Button 
+                  onClick={handleWhatsAppClick}
+                  size="lg" 
+                  className="w-full bg-green-500 hover:bg-green-600 text-white"
+                >
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  Chat on WhatsApp
+                </Button>
               </CardContent>
             </Card>
           </div>
@@ -142,8 +63,8 @@ const ContactUsPage = () => {
               <Card className="hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4">
-                    <div className="bg-blue-100 p-3 rounded-lg">
-                      <Phone className="h-6 w-6 text-blue-600" />
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <Phone className="h-6 w-6 text-primary" />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800">Phone</h3>
@@ -157,13 +78,13 @@ const ContactUsPage = () => {
               <Card className="hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4">
-                    <div className="bg-blue-100 p-3 rounded-lg">
-                      <Mail className="h-6 w-6 text-blue-600" />
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <Mail className="h-6 w-6 text-primary" />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800">Email</h3>
-                      <p className="text-gray-600">info@claimrecovery.com</p>
-                      <p className="text-gray-600">support@claimrecovery.com</p>
+                      <p className="text-gray-600">info@equiclaim.com</p>
+                      <p className="text-gray-600">support@equiclaim.com</p>
                     </div>
                   </div>
                 </CardContent>
@@ -172,8 +93,8 @@ const ContactUsPage = () => {
               <Card className="hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4">
-                    <div className="bg-blue-100 p-3 rounded-lg">
-                      <MapPin className="h-6 w-6 text-blue-600" />
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <MapPin className="h-6 w-6 text-primary" />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800">Address</h3>
@@ -187,8 +108,8 @@ const ContactUsPage = () => {
               <Card className="hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4">
-                    <div className="bg-blue-100 p-3 rounded-lg">
-                      <Clock className="h-6 w-6 text-blue-600" />
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <Clock className="h-6 w-6 text-primary" />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800">Office Hours</h3>
@@ -203,10 +124,10 @@ const ContactUsPage = () => {
             {/* Map placeholder */}
             <Card>
               <CardContent className="p-0">
-                <div className="h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+                <div className="h-64 bg-primary/5 rounded-lg flex items-center justify-center border-2 border-dashed border-primary/20">
                   <div className="text-center">
-                    <MapPin className="h-12 w-12 text-gray-400 mx-auto mb-2" />
-                    <p className="text-gray-500">Interactive Map</p>
+                    <MapPin className="h-12 w-12 text-primary/40 mx-auto mb-2" />
+                    <p className="text-primary/60">Interactive Map</p>
                   </div>
                 </div>
               </CardContent>
@@ -214,6 +135,8 @@ const ContactUsPage = () => {
           </div>
         </div>
       </div>
+
+      <WhatsAppPopup />
     </div>
   );
 };

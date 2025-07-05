@@ -3,26 +3,27 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle, Shield, Users, Award, ArrowRight } from 'lucide-react';
+import WhatsAppPopup from '@/components/WhatsAppPopup';
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-primary/5 to-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+      <section className="relative bg-gradient-to-r from-primary to-secondary text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6 animate-fade-in">
               Professional Financial Recovery Services
             </h1>
-            <p className="text-xl mb-8 text-blue-100">
+            <p className="text-xl mb-8 text-primary-foreground/80">
               Expert assistance for IEPF claims, unclaimed deposits, and financial recovery solutions
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 transition-colors">
+              <Button size="lg" className="bg-white text-primary hover:bg-primary-foreground/90 transition-colors">
                 Get Free Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
                 View Services
               </Button>
             </div>
@@ -35,19 +36,19 @@ const HomePage = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div className="animate-fade-in">
-              <div className="text-3xl font-bold text-blue-600 mb-2">500+</div>
+              <div className="text-3xl font-bold text-primary mb-2">500+</div>
               <div className="text-gray-600">Successful Claims</div>
             </div>
             <div className="animate-fade-in">
-              <div className="text-3xl font-bold text-blue-600 mb-2">₹10Cr+</div>
+              <div className="text-3xl font-bold text-primary mb-2">₹10Cr+</div>
               <div className="text-gray-600">Amount Recovered</div>
             </div>
             <div className="animate-fade-in">
-              <div className="text-3xl font-bold text-blue-600 mb-2">5+</div>
+              <div className="text-3xl font-bold text-primary mb-2">5+</div>
               <div className="text-gray-600">Years Experience</div>
             </div>
             <div className="animate-fade-in">
-              <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
+              <div className="text-3xl font-bold text-primary mb-2">24/7</div>
               <div className="text-gray-600">Support Available</div>
             </div>
           </div>
@@ -55,7 +56,7 @@ const HomePage = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
@@ -65,40 +66,49 @@ const HomePage = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in">
+            <Card className="hover:shadow-xl transition-all duration-300 animate-fade-in group">
               <CardContent className="p-8 text-center">
-                <Shield className="h-16 w-16 text-blue-600 mx-auto mb-6" />
+                <div className="mb-6 relative">
+                  <Shield className="h-16 w-16 text-primary mx-auto gen-z-icon group-hover:animate-wiggle" />
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary/20 rounded-full animate-pulse"></div>
+                </div>
                 <h3 className="text-2xl font-semibold mb-4">IEPF Claim Recovery</h3>
                 <p className="text-gray-600 mb-6">
                   Expert assistance in recovering unclaimed dividends, deposits, and shares from IEPF
                 </p>
-                <Button variant="outline" className="hover-scale">
+                <Button variant="outline" className="hover-scale border-primary text-primary hover:bg-primary hover:text-white">
                   Learn More
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in">
+            <Card className="hover:shadow-xl transition-all duration-300 animate-fade-in group">
               <CardContent className="p-8 text-center">
-                <Users className="h-16 w-16 text-blue-600 mx-auto mb-6" />
+                <div className="mb-6 relative">
+                  <Users className="h-16 w-16 text-primary mx-auto gen-z-icon group-hover:animate-float" />
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-secondary/20 rounded-full animate-bounce"></div>
+                </div>
                 <h3 className="text-2xl font-semibold mb-4">Unclaimed Deposits</h3>
                 <p className="text-gray-600 mb-6">
                   Recover dormant bank accounts, fixed deposits, and other unclaimed financial assets
                 </p>
-                <Button variant="outline" className="hover-scale">
+                <Button variant="outline" className="hover-scale border-primary text-primary hover:bg-primary hover:text-white">
                   Learn More
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in">
+            <Card className="hover:shadow-xl transition-all duration-300 animate-fade-in group">
               <CardContent className="p-8 text-center">
-                <Award className="h-16 w-16 text-blue-600 mx-auto mb-6" />
+                <div className="mb-6 relative">
+                  <Award className="h-16 w-16 text-primary mx-auto gen-z-icon group-hover:icon-spin-slow" />
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary/20 rounded-full icon-pulse"></div>
+                </div>
                 <h3 className="text-2xl font-semibold mb-4">Legal Consultation</h3>
                 <p className="text-gray-600 mb-6">
                   Professional legal guidance for complex financial recovery cases
                 </p>
-                <Button variant="outline" className="hover-scale">
+                <Button variant="outline" className="hover-scale border-primary text-primary hover:bg-primary hover:text-white">
                   Learn More
                 </Button>
               </CardContent>
@@ -144,7 +154,7 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-blue-100 to-blue-200 p-8 rounded-lg">
+            <div className="bg-gradient-to-br from-primary/10 to-secondary/10 p-8 rounded-lg">
               <img 
                 src="https://images.unsplash.com/photo-1521791055366-0d553872125f?w=600&h=400&fit=crop" 
                 alt="Professional team"
@@ -156,18 +166,20 @@ const HomePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <section className="py-20 bg-gradient-to-r from-primary to-secondary text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Recover Your Money?</h2>
-          <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
+          <p className="text-xl mb-8 text-primary-foreground/80 max-w-2xl mx-auto">
             Don't let your hard-earned money remain unclaimed. Contact us today for a free consultation.
           </p>
-          <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 transition-colors">
+          <Button size="lg" className="bg-white text-primary hover:bg-primary-foreground/90 transition-colors">
             Start Your Claim Today
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
       </section>
+
+      <WhatsAppPopup />
     </div>
   );
 };

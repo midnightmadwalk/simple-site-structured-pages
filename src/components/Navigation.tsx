@@ -21,8 +21,12 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors">
-            ClaimRecovery
+          <Link to="/" className="flex items-center space-x-2">
+            <img 
+              src="/lovable-uploads/17d3e4d5-9e3f-4f14-9aa0-e569e9d15fe3.png" 
+              alt="EquiClaim Solutions" 
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -31,16 +35,16 @@ const Navigation = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`font-medium transition-colors hover:text-blue-600 ${
+                className={`font-medium transition-colors hover:text-primary ${
                   isActive(item.path) 
-                    ? 'text-blue-600 border-b-2 border-blue-600' 
+                    ? 'text-primary border-b-2 border-primary' 
                     : 'text-gray-700'
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-            <Button className="bg-blue-600 hover:bg-blue-700">
+            <Button className="bg-primary hover:bg-primary/90">
               <Phone className="w-4 h-4 mr-2" />
               Call Now
             </Button>
@@ -63,15 +67,15 @@ const Navigation = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`font-medium transition-colors hover:text-blue-600 py-2 ${
-                    isActive(item.path) ? 'text-blue-600' : 'text-gray-700'
+                  className={`font-medium transition-colors hover:text-primary py-2 ${
+                    isActive(item.path) ? 'text-primary' : 'text-gray-700'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Button className="bg-blue-600 hover:bg-blue-700 w-fit">
+              <Button className="bg-primary hover:bg-primary/90 w-fit">
                 <Phone className="w-4 h-4 mr-2" />
                 Call Now
               </Button>
