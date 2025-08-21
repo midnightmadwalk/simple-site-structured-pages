@@ -12,6 +12,8 @@ const Navigation = () => {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'IEPF Claim & Recovery', path: '/iepf-claim-recovery' },
+    { name: 'Prompt Ready', path: '/prompt-ready' },
+    { name: 'Blog', path: '/blog' },
     { name: 'Contact Us', path: '/contact-us' },
   ];
 

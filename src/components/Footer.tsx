@@ -12,11 +12,13 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <img 
-                src="/lovable-uploads/17d3e4d5-9e3f-4f14-9aa0-e569e9d15fe3.png" 
-                alt={siteConfig.company.name}
-                className="h-8 md:h-10 w-auto"
-              />
+              <div className="bg-white/10 p-2 rounded-lg">
+                <img 
+                  src="/lovable-uploads/17d3e4d5-9e3f-4f14-9aa0-e569e9d15fe3.png" 
+                  alt={siteConfig.company.name}
+                  className="h-8 md:h-10 w-auto"
+                />
+              </div>
             </div>
             <p className="text-gray-300 mb-4 text-sm md:text-base">
               Professional financial recovery services helping individuals and businesses 

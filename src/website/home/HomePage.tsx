@@ -43,19 +43,14 @@ const HomePage = () => {
       description: 'Professional assistance for recovering dormant mutual fund investments',
     },
     {
-      icon: Building,
-      title: 'In-Operative Bank Deposits',
-      description: 'Reactivate dormant bank accounts and recover unclaimed deposits',
-    },
-    {
       icon: Search,
-      title: 'Unclaimed Debtors',
-      description: 'Trace and recover unclaimed debts and outstanding amounts',
+      title: 'IPO Consultancy',
+      description: 'Expert guidance for Initial Public Offering investments and consultancy services',
     },
     {
       icon: Briefcase,
-      title: 'Litigation Funding Consulting',
-      description: 'Expert consultation for complex financial recovery litigation cases',
+      title: 'Insurance Advisory',
+      description: 'Comprehensive insurance advisory covering General, Vehicle, Mediclaim, and Life Insurance',
     },
   ];
 
@@ -163,7 +158,10 @@ const HomePage = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 md:mb-6">Why Choose Us?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 md:mb-6">Why Choose EquiClaim?</h2>
+              <p className="text-lg md:text-xl text-gray-600 mb-6">
+                EquiClaim is a Gandhinagar-based company dedicated to professional financial recovery services.
+              </p>
               <div className="space-y-4 md:space-y-6">
                 <div className="flex items-start gap-3 md:gap-4">
                   <CheckCircle className="h-5 w-5 md:h-6 md:w-6 text-green-500 mt-1 flex-shrink-0" />
