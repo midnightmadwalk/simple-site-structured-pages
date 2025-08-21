@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle, ArrowRight, MessageCircle, FileText, Clock, Download } from 'lucide-react';
 import WhatsAppPopup from '@/components/WhatsAppPopup';
-import WhatsAppWave from '@/components/WhatsAppWave';
+
 import ScrollAnimations from '@/components/ScrollAnimations';
 import siteConfig from '@/config/siteConfig.json';
 
@@ -53,8 +53,6 @@ const PromptReadyPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary/5 to-white">
-      {/* WhatsApp Wave Animation */}
-      <WhatsAppWave />
       
       {/* Scroll Animation Handler */}
       <ScrollAnimations />

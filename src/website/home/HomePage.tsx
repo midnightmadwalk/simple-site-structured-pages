@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle, ArrowRight, MessageCircle, FileText, Share2, Shield, Users, Award, Building, Search, FileCheck, Banknote, Briefcase } from 'lucide-react';
 import WhatsAppPopup from '@/components/WhatsAppPopup';
-import WhatsAppWave from '@/components/WhatsAppWave';
 import ScrollAnimations from '@/components/ScrollAnimations';
 import siteConfig from '@/config/siteConfig.json';
 
@@ -56,8 +55,6 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary/5 to-white">
-      {/* WhatsApp Wave Animation */}
-      <WhatsAppWave />
       
       {/* Scroll Animation Handler */}
       <ScrollAnimations />
